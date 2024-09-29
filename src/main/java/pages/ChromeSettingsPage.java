@@ -12,23 +12,24 @@ public class ChromeSettingsPage extends BasePage{
         this.driver = driver;
 	}
 	
-	private String chromeSettingsSearchBox = " return document.querySelector('settings-ui').shadowRoot"
-			+ ".querySelector('cr-toolbar').shadowRoot.querySelector('div#centeredContent>cr-toolbar-search-field')."
-			+ "shadowRoot.querySelector('input')";
+	private String chromeSettingsSearchBox = " return document.querySelector('settings-ui').shadowRoot."
+			+ "querySelector('cr-toolbar').shadowRoot.querySelector('div#centeredContent>cr-toolbar-search-field').shadowRoot."
+			+ "querySelector('input')";
 	
-	private String chromeSettingsDeleteBrowsingData = "return document.querySelector('settings-ui')."
-			+ "shadowRoot.querySelector('div#container>settings-main').shadowRoot.querySelector('settings-basic-page')."
-			+ "shadowRoot.querySelector('div#basicPage>settings-section>settings-privacy-page').shadowRoot."
+	private String chromeSettingsDeleteBrowsingData = "return document.querySelector('settings-ui').shadowRoot."
+			+ "querySelector('div#container>settings-main').shadowRoot.querySelector('settings-basic-page').shadowRoot."
+			+ "querySelector('div#basicPage>settings-section>settings-privacy-page').shadowRoot."
 			+ "querySelector('settings-animated-pages>div>cr-link-row')";
 	
-	private String chromeSettingsTimeRangeDropDown = "return document.querySelector('settings-ui').shadowRoot.querySelector('div#container>settings-main')."
-			+ "shadowRoot.querySelector('settings-basic-page').shadowRoot.querySelector('div#basicPage>settings-section>settings-privacy-page')."
-			+ "shadowRoot.querySelector('settings-clear-browsing-data-dialog').shadowRoot."
+	private String chromeSettingsTimeRangeDropDown = "return document.querySelector('settings-ui').shadowRoot."
+			+ "querySelector('div#container>settings-main').shadowRoot.querySelector('settings-basic-page').shadowRoot."
+			+ "querySelector('div#basicPage>settings-section>settings-privacy-page').shadowRoot."
+			+ "querySelector('settings-clear-browsing-data-dialog').shadowRoot."
 			+ "querySelector(\"cr-dialog>div[slot='body']>cr-page-selector>div>div>settings-dropdown-menu\").shadowRoot.querySelector('select')";
 	
 	private String  chromeSettingsSelectedTimeRange = "return document.querySelector('settings-ui').shadowRoot."
-			+ "querySelector('div#container>settings-main').shadowRoot.querySelector('settings-basic-page')."
-			+ "shadowRoot.querySelector('div#basicPage>settings-section>settings-privacy-page').shadowRoot."
+			+ "querySelector('div#container>settings-main').shadowRoot.querySelector('settings-basic-page').shadowRoot."
+			+ "querySelector('div#basicPage>settings-section>settings-privacy-page').shadowRoot."
 			+ "querySelector('settings-clear-browsing-data-dialog').shadowRoot."
 			+ "querySelector(\"cr-dialog>div[slot='body']>cr-page-selector>div>div>settings-dropdown-menu\").shadowRoot."
 			+ "querySelector('select').selectedOptions[0].label";

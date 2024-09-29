@@ -1,5 +1,13 @@
 package pages;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.TreeMap;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -84,11 +92,24 @@ public class DoodlesPage extends BasePage{
     
     public DoodlesPage selectTheCountryContentCard(String country) {
     	for(WebElement ele:driver.findElements(doodleContentCards)) {
-			if(ele.findElement(By.xpath(".//p[2]")).getText().contains("India")) {
+			if(ele.findElement(By.xpath(".//p[2]")).getText().contains(country)) {
 				ele.click();
 				break;
 			}
     	}
         return this;	
+    }
+    
+    public Map<String, Date> getContentCardDetails() throws ParseException {
+    	Map<String,Date> contentCardsMap = new TreeMap<>();
+		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM d, yyyy");
+		
+		for(WebElement ele:driver.findElements(doodleContentCards)) {
+			contentCardsMap.put(ele.findElement(By.xpath(".//p[2]")).getText().split(" Independence Day 2024")[0],
+					dateFormat.parse(ele.findElement(By.xpath(".//p[1]")).getText()));
+			
+		}
+        return contentCardsMap;	
     }
 }

@@ -73,19 +73,21 @@ public class DoodleTest extends BaseTest{
 		//5
 	    doodlesPage.waitForDoodleLoaderToDisappear();
 	    
-		List<WebElement> contentCards=driver.findElements(By.xpath("//div[@class='doodle-card-content']"));
+//		List<WebElement> contentCards=driver.findElements(By.xpath("//div[@class='doodle-card-content']"));
 		
-		Map<String,Date> contentCardsMap = new TreeMap<>();
+		Map<String,Date> contentCardsMap = doodlesPage.getContentCardDetails();
 		ArrayList<Date> valueList = new ArrayList<>();
 		LinkedHashMap<String, Date> sortedMap = new LinkedHashMap<>();
 		
-		SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM d, yyyy");
+		valueList.addAll(contentCardsMap.values());
 		
-		for(WebElement ele:contentCards) {
-			contentCardsMap.put(ele.findElement(By.xpath(".//p[2]")).getText().split(" Independence Day 2024")[0],
-					dateFormat.parse(ele.findElement(By.xpath(".//p[1]")).getText()));
-			valueList.add(dateFormat.parse(ele.findElement(By.xpath(".//p[1]")).getText()));
-		}
+//		SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM d, yyyy");
+		
+//		for(WebElement ele:contentCards) {
+//			contentCardsMap.put(ele.findElement(By.xpath(".//p[2]")).getText().split(" Independence Day 2024")[0],
+//					dateFormat.parse(ele.findElement(By.xpath(".//p[1]")).getText()));
+//			
+//		}
 
 		System.out.println(contentCardsMap.toString());
 		Assert.assertTrue(contentCardsMap.keySet().toString().contains("India"));
