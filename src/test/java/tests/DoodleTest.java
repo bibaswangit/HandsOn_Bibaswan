@@ -42,7 +42,7 @@ import org.testng.annotations.Test;
 import pages.ChromeSettingsPage;
 import pages.DoodlesPage;
 
-public class HandsOnTest extends BaseTest{
+public class DoodleTest extends BaseTest{
 		
 	@Test
 	public void test() throws Exception {
